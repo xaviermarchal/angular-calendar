@@ -28,8 +28,8 @@ The application is a unique weekly calendar view representing all the meeting of
 ![Calendar view](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/calendar.png)
 
 The application enables to create new events thanks to a create button, or selecting a already created event, and edit it.
-![Creation Form](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/event-create.png|width=300)
-![Edition Form](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/event-edit.png|width=300)
+![Creation Form](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/event-create.png |width=300)
+![Edition Form](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/event-edit.png |width=300)
 
 
 ## User Limitations :
@@ -137,13 +137,17 @@ This applications embeds seven different components :
 * Three main components for the global view : 
 
    -[Nav-Bar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/nav-bar) : navigation bar. This component provides actions on the selected date, with possibility to reset the date to today, or swith to next/previous week.
+   
    -[Side-Bar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/side-bar) : left side bar. This component enables to change the selected date with a date Picker. You can also create a new event and switch the selected user whom the application is displaying his events.
+   
    -[Calendar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/calendar) : Main composent displayed the calendar. This composant acts like a container, managing the store and giving informations to sub components to be displayed. For now, this composant fixes the current viewType to 'week' type, or fixes the hours to be displayed ( this could be an improvement of the app.).
 
 * Three components used by calendar
 
    -[day-view](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/day-view) : The day view. This components renders a view for the current day, and its list of all events associated to the day. Each event is displayed thanks to a CSS padding system. Each hour represent around 40px (fixed value, but could be changed in a near future). The day view launches the dialog form for creating events, and emit these events once they are created/edited to its parent.
+   
    -[calendar-event](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/calendarevent) : The event view. This component display a colored box given the event information (color, title, dates).
+   
    -[event-form](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/event-form) : the form component for creating/editing an event. Given an event, display by default the event values in the form fields.
 
 * One component used by side-bar
