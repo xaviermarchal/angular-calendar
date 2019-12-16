@@ -28,8 +28,8 @@ The application is a unique weekly calendar view representing all the meeting of
 ![Calendar view](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/calendar.png)
 
 The application enables to create new events thanks to a create button, or selecting a already created event, and edit it.
+
 ![Creation Form](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/event-create.png)
-![Edition Form](https://github.com/xaviermarchal/angular-calendar/blob/master/src/assets/readme/event-edit.png)
 
 
 ## User Limitations :
