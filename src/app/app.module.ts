@@ -28,8 +28,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { ColorPickerModule } from 'ngx-color-picker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 
@@ -56,8 +54,6 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCardModule,
     MatDialogModule,
     MatCheckboxModule,
-    ColorPickerModule,
-    NgxMaterialTimepickerModule,
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
