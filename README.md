@@ -11,7 +11,7 @@
 ## Description
 
 Angular Calendar is a project whose goal is to develop a single-page application that presents a weekly calendar, with Angular.
-This project is a view of the days of the week, where the user can see any events he created during that week. 
+This project is a view of the days of the week, where the user can see any event he created during that week. 
 
 The user can change the selected date and display any week he wants. The displayed events will be updated depending on the days.
 
@@ -19,7 +19,7 @@ The user can create a new event, by clicking on the calendar. A dialog will open
 
 The created event is always depending on the user selected. By default, there are only three users logged (Xavier, Corentin and Gaultier)
 
-The user can edit a created event, and change start date and end date, title, color. He can also delete the event.
+The user can edit a created event, and change start date, end date, title and color. He can also delete the event.
 
 ## Interactions
 
@@ -33,7 +33,7 @@ The application enables to create new events thanks to a create button, or selec
 
 
 ## User Limitations :
-The calendar being created in a given time of one week, it presents at the moment several user limitations :
+The calendar being developed in one week duration, it presents at the moment several user limitations :
 
 * No check is done on start date and end date. Please enter a correct date.
 * No Undo/Redo is possible. If you deleted an event by mistake, you can create it again.
@@ -69,7 +69,7 @@ Package version
 
 angular-calendar notably takes advantage of [Material Angular](https://material.angular.io/) for UI, or [MomentJS](https://momentjs.com/)  for storing dates.
 
-Here is a non exhasutive list of libraries used :
+Here is a non exhaustive list of libraries used :
 * MomentJS
 * Material Angular : Radio Box, Card, Date picker etc. 
 * Reactive Forms
@@ -136,20 +136,20 @@ This applications embeds seven different components :
 
 * Three main components for the global view : 
 
-   -[Nav-Bar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/nav-bar) : navigation bar. This component provides actions on the selected date, with possibility to reset the date to today, or switch to next/previous week.
+   -[Nav-Bar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/nav-bar) : Navigation bar. This component provides actions on the selected date, with possibility to reset the date to today, or switch to next/previous week.
    
-   -[Side-Bar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/side-bar) : left side bar. This component enables to change the selected date with a date Picker. You can also create a new event and switch the selected user whom the application is displaying his events.
+   -[Side-Bar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/side-bar) : Left side bar. This component enables to change the selected date with a date Picker. You can also create a new event and switch the selected user whom the application is displaying his events.
    
    -[Calendar](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/calendar) : Main component displaying the calendar. This component acts like a container, managing the store and giving information to sub components to be displayed. For now, this component fixes the current viewType to 'week' type, and makes the hours always displayed ( this could be an improvement of the app.).
 
 * Three components used by calendar
 
-   -[day-view](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/day-view) : The day view. This component renders a view for the current day, and its list of all events associated. Each event is displayed thanks to a CSS padding system. Each hour represents around 40px (fixed value, but could be changed in a near future). The day view launches the dialog form for creating events, and emit these events once they are created/edited to its parent.
+   -[Day-view](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/day-view) : The day view. This component renders a view for the current day, and its list of all events associated. Each event is displayed thanks to a CSS padding system. Each hour represents around 40px (fixed value, but could be changed in a near future). The day view launches the dialog form for creating events, and emit these events once they are created/edited to its parent.
    
-   -[calendar-event](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/calendarevent) : The event view. This component displays a colored box given the event information (color, title, dates).
+   -[Calendar-event](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/calendarevent) : The event view. This component displays a colored box given the event information (color, title, dates).
    
-   -[event-form](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/event-form) : the form component for creating/editing an event. Given an event, displays by default the event values in the form fields.
+   -[Event-form](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/event-form) : The form component for creating/editing an event. Given an event, displays by default the event values in the form fields.
 
 * One component used by side-bar
 
-   -[User](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/users) : This component provides a radio group view of the user list available. When a user is selected, it raised an event to inform its parents that a selection change has been done. The user list is fixed in the project.
+   -[User](https://github.com/xaviermarchal/angular-calendar/tree/master/src/app/components/users) : This component provides a radio group view of the user list available. When a user is selected, it raises an event to inform its parent that a selection change has been done. The user list is fixed in the project.
