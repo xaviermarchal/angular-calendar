@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-content>
+        <p>Users</p>
+        <mat-checkbox *ngFor="let user of users" 
+            [checked]="user.selected"
+            (change)="onChangeSelection($event,user)"
+        >
+            {{ user.fname }} {{ user.name }}
+        </mat-checkbox>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,6 @@
+<div class="nav-bar-main">
+    <button mat-raised-button (click)="resetDate()">Today</button>
+    <button mat-mini-fab color="basic" (click)="adjustDate(-7)"><</button>
+    <button mat-mini-fab color="basic" (click)="adjustDate(7)">></button>
+    {{ formatDate(selectedDate) }}
+</div>

@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="form">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Add title" formControlName="title"> 
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="datetime-local" placeholder="Start Date" formControlName="startdate">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="datetime-local" placeholder="End Date" formControlName="enddate">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="color" placeholder="Color" formControlName="color">
+            </mat-form-field>
+        </form>
+
+        <!-- [ngStyle]="setDeleteButtonStyle()" -->
+        <button mat-raised-button (click)="onDeleteEvent($event)">Delete</button>
+        <button mat-raised-button (click)="onSaveEvent($event)">Save</button>
+    </mat-card-content>
+</mat-card>
+  

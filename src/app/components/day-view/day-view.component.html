@@ -1,0 +1,9 @@
+<app-calendarevent
+    *ngFor="let ev of events"
+    [event]="ev"
+    [ngStyle]="setComputedEventStyle(ev)"
+    (click)="onEventClickEvent($event, ev)"
+    (delete)="onDeleteEventReceived($event)"
+    (save)="onSaveEventReceived($event)"
+  >
+</app-calendarevent>

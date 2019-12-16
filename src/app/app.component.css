@@ -1,0 +1,22 @@
+.app-comp-side-bar{
+    min-width: 10%;
+    width: 15%;    
+}
+.app-comp-nav-bar{
+    height: 100px;
+}
+.app-comp-calendar{
+    height: 100%;
+    
+}
+.app-comp-content{
+    height:100%;
+    width:100%;
+    display:flex;
+}
+.app-comp-main{
+    height:100%;
+    display:block;
+    width: 85%;  
+}
+

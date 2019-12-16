@@ -1,0 +1,15 @@
+div{
+    position: 'absolute';
+    width: 100%;
+}
+.ev-title{
+    font-size: 0.6em;
+    font-weight: bold;
+}
+.ev-details{
+    font-size: 0.6em
+}
+.ev-form-card{
+    background-color: inherit;
+    height: inherit;
+}

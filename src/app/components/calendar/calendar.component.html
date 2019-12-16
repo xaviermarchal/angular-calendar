@@ -1,0 +1,31 @@
+<mat-card class="scrollable-content">
+    <div class="header">
+        <div class="hours-section"></div>
+        <div *ngFor="let dayidx of dayList" class='day-header'>
+            <p>{{formatDay(dayidx,'ddd')}}.</p>
+            <button mat-mini-fab [color]="getDayColor(dayidx)">{{formatDay(dayidx,'D')}}</button>
+            <div class="additionnal-grid"></div>
+        </div>
+    </div>
+    <mat-card-content>
+        <div class="hours-section">
+            <div *ngFor="let hour of hoursList" class="hour">{{hour}}</div>
+        </div>
+        <div class="presentation">
+            <div class="grid">
+                <div *ngFor="let hour of hoursList" class="grid-line"></div>
+            </div>
+            <div class="days-container">
+                <app-day-view 
+                    *ngFor="let dayidx of dayList" 
+                    class='day-container'
+                    (click)="onDayClickEvent($event,dayidx)"
+                    (delete)="onDeleteEventReceived($event)"
+                    (save)="onSaveEventReceived($event)"
+                    [day]="getDayMoment(dayidx)" 
+                    [events]="getDayEvents(dayidx)"
+                ></app-day-view>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

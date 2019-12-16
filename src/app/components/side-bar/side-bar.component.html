@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-content>
+        <p><img src="./../../assets/wm-logo.png"></p>
+        <button mat-raised-button (click)="onCreateEvent()">Create</button>
+        <mat-calendar
+            [selected]="selectedDate" 
+            (selectedChange)="onChangeDate($event)">
+        ></mat-calendar>
+        <app-users [users]="users" (changeUserSelection)="onChangeUserSelection($event)"></app-users>
+    </mat-card-content>
+</mat-card>
