@@ -10,8 +10,8 @@ export const initialUserState: UserState = adapter.getInitialState( {
     ids: ['0', '1', '2'],
     entities : {
         0: {id: '0', fname: 'Xavier', name: 'Marchal', color: '#FF0000', selected: true },
-        1: {id: '1', fname: 'Corentin', name: 'Urban Linker', color: '#00FF00', selected: false },
-        2: {id: '2', fname: 'Gaultier', name: 'Romon', color: '#0000FF', selected: false }
+        1: {id: '1', fname: 'Corentin', name: 'Flacher', color: '#00FF00', selected: false },
+        2: {id: '2', fname: 'Gaultier', name: 'Romon', color: '#0080FF', selected: false }
     }
 });
 
@@ -21,8 +21,8 @@ export function userReducer(state = initialUserState, action: UserActions.Action
             return adapter.addOne(action.payload.user, state);
         case UserActions.UserActionTypes.UPDATE_USER:
             return adapter.updateOne(action.payload.update, state);
-            case UserActions.UserActionTypes.UPDATE_USERS:
-                return adapter.updateMany(action.payload.updates, state);
+        case UserActions.UserActionTypes.UPDATE_USERS:
+            return adapter.updateMany(action.payload.updates, state);
         default:
             return state;
     }
@@ -32,4 +32,3 @@ export const getUsersState = createFeatureSelector<UserState>('users');
 export const {
     selectAll
 } = adapter.getSelectors(getUsersState);
-
