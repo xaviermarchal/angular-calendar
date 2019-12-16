@@ -13,8 +13,11 @@ import * as moment from 'moment';
 export class NavBarComponent implements OnInit {
 
   selectedDate: moment.Moment;
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {}
+  ngOnInit() {
+    this.store.select('selectedDate').subscribe(mom => this.selectedDate = mom);
   }
+  // Actions : dispatch in store
   resetDate() {
     this.store.dispatch(new DateActions.ResetDate());
   }
@@ -22,11 +25,10 @@ export class NavBarComponent implements OnInit {
     const newDate = this.selectedDate.clone().add(delay, 'days');
     this.store.dispatch(new DateActions.UpdateDate( newDate ) );
   }
+  // format date
   formatDate(mom: moment.Moment) {
     return mom.format('MMMM YYYY');
   }
-  ngOnInit() {
-    this.store.select('selectedDate').subscribe(mom => this.selectedDate = mom);
-  }
+
 
 }

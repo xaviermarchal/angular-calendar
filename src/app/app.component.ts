@@ -1,3 +1,4 @@
+import { CalendarOptions } from './models/calendarOptions.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Calendar';
+  options = new CalendarOptions();
 }

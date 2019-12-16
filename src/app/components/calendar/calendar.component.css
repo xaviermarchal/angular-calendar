@@ -1,11 +1,10 @@
-
 mat-card-content{
     display:flex;
 }
 .mat-card.scrollable-content {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 } 
 button{
     box-shadow: 0 1px 1px -1px rgba(0,0,0,.2), 0 1px 3px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12) !important;
@@ -18,12 +17,14 @@ button{
 .day-container{
     height: 100%;
     width : 189px;
+    min-width: 189px;
     border-left: #dadce0 1px solid;
     vertical-align: baseline;
 }
 .day-header{
     height: 100%;
     width : 189px;
+    min-width: 189px;
     display: block;
     text-align: center;
 }
@@ -64,7 +65,8 @@ button{
 }
 .hours-section {
     display: block;
-    width:41px;
+    width: 41px;
+    min-width: 41px;
     margin-top: -10px !important;
 }
 .presentation {

@@ -1,6 +1,6 @@
 import { AppState } from './../../store/states/app.state';
 import { Store, createSelector } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventFormComponent } from '../event-form/event-form.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -13,22 +13,24 @@ import * as EventsActions from './../../store/actions/calendarEvent.actions';
 import * as fromEvents from './../../store/reducers/calendarevent.reducer';
 import * as fromUsers from './../../store/reducers/user.reducer';
 
-
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  // renderer options
+  // notably hour list, day list, grid pixel sixe
+  @Input() options ? = new CalendarOptions();
 
   selectedDate: moment.Moment;
   events: CalendarEvent[] = [];
   users: User[];
 
-  // renderer options
-  options = new CalendarOptions();
+
 
   constructor(private store: Store<AppState>, public dialog: MatDialog) {}
+
   ngOnInit() {
     this.store.select('selectedDate').subscribe(mom => this.selectedDate = mom);
 
@@ -42,7 +44,7 @@ export class CalendarComponent implements OnInit {
     );
     this.store.select(selectEventsForCalendar).subscribe(res => this.events = res);
   }
-
+  // Auxiliary function for formatting et get for readability
   formatDay(dayIdx: number, formatType: string) {
     return this.getDayMoment(dayIdx).format(formatType);
   }
