@@ -1,11 +1,15 @@
 <mat-card>
     <mat-card-content>
         <p>Users</p>
-        <mat-checkbox *ngFor="let user of users" 
-            [checked]="user.selected"
-            (change)="onChangeSelection($event,user)"
-        >
-            {{ user.fname }} {{ user.name }}
-        </mat-checkbox>
+        <mat-radio-group name="radio-group">
+            <mat-radio-button *ngFor="let user of users; let i = index" 
+                [value]="i" [checked]="user.selected"
+                (change)="onChangeSelection($event,user)"
+                name="radio"
+            >
+                {{ user.fname }} {{ user.name }}
+            </mat-radio-button>
+        </mat-radio-group>
+        
     </mat-card-content>
 </mat-card>

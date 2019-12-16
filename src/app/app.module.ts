@@ -31,6 +31,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     ColorPickerModule,
     NgxMaterialTimepickerModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({

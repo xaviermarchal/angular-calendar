@@ -1,9 +1,9 @@
 import { AppState } from './../../store/states/app.state';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { Update } from '@ngrx/entity';
 import { MatDialog } from '@angular/material/dialog';
 import { EventFormComponent } from './../event-form/event-form.component';
-import { Update } from '@ngrx/entity';
 
 import * as DateActions from './../../store/actions/selectedDate.actions';
 import * as UserActions from './../../store/actions/user.action';
@@ -25,6 +25,13 @@ export class SideBarComponent implements OnInit {
   users: User[];
   constructor(private store: Store<AppState>, public dialog: MatDialog) {}
 
+  ngOnInit() {
+    this.store.select('selectedDate').subscribe(mom => this.selectedDate = mom);
+    this.store.select(fromUsers.selectAll).subscribe(res => this.users = res);
+  }
+  // Events managements
+
+  // Create button : new event, 1h default
   onCreateEvent() {
     const newId = moment().toString();
     const newTitle = '';
@@ -43,17 +50,12 @@ export class SideBarComponent implements OnInit {
     });
 
   }
+  // Date picker
   onChangeDate(newDate: moment.Moment) {
     this.store.dispatch( new DateActions.UpdateDate( newDate ) );
   }
-
-  onChangeUserSelection(user: User) {
-    const updates: Update<User> = { id: user.id , changes: { selected: !user.selected }};
-    this.store.dispatch( new UserActions.UpdateUser( {user: updates} ));
-  }
-
-  ngOnInit() {
-    this.store.select('selectedDate').subscribe(mom => this.selectedDate = mom);
-    this.store.select(fromUsers.selectAll).subscribe(res => this.users = res);
+  // users radio group
+  onChangeUserSelection(usersUpdate: Update<User>[] ) {
+    this.store.dispatch( new UserActions.UpdateUsers( { updates : usersUpdate } ));
   }
 }

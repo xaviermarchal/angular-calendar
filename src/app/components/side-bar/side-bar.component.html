@@ -6,6 +6,6 @@
             [selected]="selectedDate" 
             (selectedChange)="onChangeDate($event)">
         ></mat-calendar>
-        <app-users [users]="users" (changeUserSelection)="onChangeUserSelection($event)"></app-users>
+        <app-users [users]="users" (updateUsers)="onChangeUserSelection($event)"></app-users>
     </mat-card-content>
 </mat-card>

@@ -20,7 +20,9 @@ export function userReducer(state = initialUserState, action: UserActions.Action
         case UserActions.UserActionTypes.ADD_USER:
             return adapter.addOne(action.payload.user, state);
         case UserActions.UserActionTypes.UPDATE_USER:
-            return adapter.updateOne(action.payload.user, state);
+            return adapter.updateOne(action.payload.update, state);
+            case UserActions.UserActionTypes.UPDATE_USERS:
+                return adapter.updateMany(action.payload.updates, state);
         default:
             return state;
     }

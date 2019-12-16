@@ -56,5 +56,3 @@ export const getCalendarEventsState = createFeatureSelector<CalendarEventsState>
 export const {
     selectAll
 } = adapter.getSelectors(getCalendarEventsState);
-
-
