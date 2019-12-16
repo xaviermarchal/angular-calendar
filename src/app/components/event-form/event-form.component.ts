@@ -19,7 +19,10 @@ export class EventFormComponent {
     enddate : new FormControl( moment() ),
     color : new FormControl('#FF0000')
   });
+
   public event: CalendarEvent;
+  public editionForm = true;
+
   constructor(
     public dialogRef: MatDialogRef<EventFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -31,12 +34,15 @@ export class EventFormComponent {
         enddate : this.event.endDate.format('YYYY-MM-DD[T]HH:mm'),
         color : this.event.color
       });
+      this.editionForm = typeof(data.editionForm) === 'undefined' ? false : data.editionForm;
   }
 
-  // setDeleteButtonStyle() {
-  //   return this.isDeleteVisible ? { display: 'none' } : {};
-  // }
+  // Button 'delete' visibility : depending on creation/edition
+  setDeleteButtonStyle() {
+    return this.editionForm ? {} : { display: 'none' };
+  }
 
+  // Actions
   onDeleteEvent( mouseclick: any ) {
     this.dialogRef.afterClosed().subscribe(() => {
       this.delete.emit(this.event);
@@ -44,6 +50,7 @@ export class EventFormComponent {
     this.dialogRef.close();
   }
   onSaveEvent( mouseclick: any ) {
+    // Recopy data in new event and send save notifications
     const savedEvent = this.event;
     savedEvent.color = this.form.get('color').value;
     savedEvent.startDate = moment(this.form.get('startdate').value);

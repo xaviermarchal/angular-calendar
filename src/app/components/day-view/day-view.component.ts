@@ -1,3 +1,4 @@
+import { CalendarOptions } from './../../models/calendarOptions.model';
 import { CalendarEvent } from './../../models/calendarEvent.model';
 
 import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -14,11 +15,13 @@ import * as moment from 'moment';
 export class DayViewComponent {
   @Input() day: moment.Moment;
   @Input() events: CalendarEvent[];
+  @Input() options?: CalendarOptions = new CalendarOptions();
+
   @Output() save = new EventEmitter<CalendarEvent>();
   @Output() delete = new EventEmitter<CalendarEvent>();
 
-  hourPixelSize = 30;
   constructor(public dialog: MatDialog) {}
+
   setComputedEventStyle(ev: CalendarEvent) {
     const style = {
       'background-color': ev.color,
@@ -32,13 +35,13 @@ export class DayViewComponent {
   computeEventTopTag(ev: CalendarEvent) {
     const startingEvent = this.getStartingDateInDay(ev);
     const timeHour = startingEvent.diff(this.day, 'h', true);
-    return Math.round(timeHour * this.hourPixelSize) + 'px';
+    return Math.round(timeHour * this.options.hourPixelSize) + 'px';
   }
   computeEventHeightTag(ev: CalendarEvent) {
     const startingEvent = this.getStartingDateInDay(ev);
     const endEvent = this.getEndingDateInDay(ev);
     const timeHour = endEvent.diff(startingEvent, 'h', true);
-    return Math.round(timeHour * this.hourPixelSize) + 'px';
+    return Math.round(timeHour * this.options.hourPixelSize) + 'px';
   }
   getStartingDateInDay(ev: CalendarEvent) {
     return ev.startDate.isAfter(this.day, 'h' ) ? ev.startDate : this.day;
@@ -47,10 +50,15 @@ export class DayViewComponent {
     const nextDay = this.day.clone().add(1, 'd');
     return nextDay.isAfter(ev.endDate, 'h' ) ? ev.endDate : nextDay;
   }
+
+  // Events management
   onEventClickEvent( mouseclick: any, ev: CalendarEvent) {
     const dialogRef = this.dialog.open(EventFormComponent, {
       width: '320px',
-      data: {event: ev}
+      data: {
+        event: ev,
+        editionForm: true
+      }
     });
 
     dialogRef.componentInstance.delete.subscribe(  ( evt: CalendarEvent) => {

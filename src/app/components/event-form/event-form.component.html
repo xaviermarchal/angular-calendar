@@ -14,10 +14,10 @@
                 <input matInput type="color" placeholder="Color" formControlName="color">
             </mat-form-field>
         </form>
-
-        <!-- [ngStyle]="setDeleteButtonStyle()" -->
-        <button mat-raised-button (click)="onDeleteEvent($event)">Delete</button>
-        <button mat-raised-button (click)="onSaveEvent($event)">Save</button>
+        <div class="buttons">
+            <button mat-raised-button class="delete-btn" [ngStyle]="setDeleteButtonStyle()" (click)="onDeleteEvent($event)">Delete</button>
+            <button mat-raised-button (click)="onSaveEvent($event)">Save</button>
+        </div>
     </mat-card-content>
 </mat-card>
   

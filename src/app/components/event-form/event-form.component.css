@@ -1,3 +1,10 @@
 mat-form-field {
   width: 100%;
 }
+.buttons{
+  text-align: end;
+}
+.delete-btn{
+  margin-right: 5px;
+}
+
