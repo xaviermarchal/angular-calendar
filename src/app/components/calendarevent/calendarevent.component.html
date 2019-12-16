@@ -1,7 +1,7 @@
 <mat-card class="ev-form-card" (delete)="onDeleteEventReceived($event)">
     <mat-card-content class="ev-form-content">
         <div class="ev-title">{{event.title}}</div>
-        <div *ngIf="viewType == 'extended'" class="ev-details">
+        <div *ngIf="options.eventViewType == 'extended'" class="ev-details">
             {{getStartHour()}} à {{getEndHour()}}
         </div>
     </mat-card-content>

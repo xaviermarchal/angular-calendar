@@ -2,11 +2,6 @@ div{
     position: 'absolute';
     width: 100%;
 }
-.ev-title{
-    font-size: 0.6em;
-    font-weight: bold;
-    height: 12px;
-}
 .ev-details{
     font-size: 0.6em
 }
@@ -20,4 +15,9 @@ div{
 .ev-form-content{
     padding: 1px 1px 1px 3px;
     width: 80%;
+}
+.ev-title{
+    font-size: 0.6em;
+    font-weight: bold;
+    height: 12px;
 }

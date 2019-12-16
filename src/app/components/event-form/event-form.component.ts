@@ -10,6 +10,7 @@ import * as moment from 'moment';
   styleUrls: ['./event-form.component.css']
 })
 export class EventFormComponent {
+  // emitters for save and delete from form
   @Output() save = new EventEmitter<CalendarEvent>();
   @Output() delete = new EventEmitter<CalendarEvent>();
 
@@ -21,6 +22,7 @@ export class EventFormComponent {
   });
 
   public event: CalendarEvent;
+  // bool to know if we are in edition mode or creation
   public editionForm = true;
 
   constructor(
@@ -42,7 +44,7 @@ export class EventFormComponent {
     return this.editionForm ? {} : { display: 'none' };
   }
 
-  // Actions
+  // Actions : emit save or delete
   onDeleteEvent( mouseclick: any ) {
     this.dialogRef.afterClosed().subscribe(() => {
       this.delete.emit(this.event);

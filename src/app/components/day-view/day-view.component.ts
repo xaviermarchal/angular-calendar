@@ -22,6 +22,7 @@ export class DayViewComponent {
 
   constructor(public dialog: MatDialog) {}
 
+  // Define CSS for each event, whose position depends on time start/end.
   setComputedEventStyle(ev: CalendarEvent) {
     const style = {
       'background-color': ev.color,
@@ -32,6 +33,7 @@ export class DayViewComponent {
     };
     return style;
   }
+  // compute the top padding by multiplying the grid height per hour by the start time of the meeting.
   computeEventTopTag(ev: CalendarEvent) {
     const startingEvent = this.getStartingDateInDay(ev);
     const timeHour = startingEvent.diff(this.day, 'h', true);
@@ -43,6 +45,8 @@ export class DayViewComponent {
     const timeHour = endEvent.diff(startingEvent, 'h', true);
     return Math.round(timeHour * this.options.hourPixelSize) + 'px';
   }
+  // Getters for managing event that are on several days. For a given day, the starting day can be midnight
+  // or the starting time of the event if the event is the same day
   getStartingDateInDay(ev: CalendarEvent) {
     return ev.startDate.isAfter(this.day, 'h' ) ? ev.startDate : this.day;
   }
@@ -54,7 +58,7 @@ export class DayViewComponent {
   // Events management
   onEventClickEvent( mouseclick: any, ev: CalendarEvent) {
     const dialogRef = this.dialog.open(EventFormComponent, {
-      width: '320px',
+      width: this.options.dialogFormWidth,
       data: {
         event: ev,
         editionForm: true

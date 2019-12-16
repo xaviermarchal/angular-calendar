@@ -3,6 +3,7 @@ import { CalendarEvent } from './../../models/calendarEvent.model';
 import { User } from './../../models/user.model';
 
 import * as moment from 'moment';
+import { CalendarOptions } from 'src/app/models/calendarOptions.model';
 
 @Component({
   selector: 'app-calendarevent',
@@ -12,7 +13,7 @@ import * as moment from 'moment';
 export class CalendareventComponent {
 
   @Input() event: CalendarEvent;
-  viewType = 'extended';
+  @Input() options?: CalendarOptions = new CalendarOptions();
   constructor() { }
 
   getStartHour() {
